@@ -11,13 +11,23 @@ public class VerificaPalindrome {
 		String parola = scan.nextLine();
 		
 		int lunghezza = parola.length();
-		int indiceCentraele = lunghezza / 2;
+		int indiceCentraele = lunghezza / 2; 
+		int indicePari = lunghezza / 2 - 1; // spezzo la parola in due parti simmetriche e seleziono l'indice
 		boolean diversi = false;
 		char[] scomposta = parola.toCharArray();
 		
-		if (parola.length() % 2 == 0) {
-			System.out.println("Mi dispiace ma non può essere palindrona");
+		if (parola.length() % 2 == 0 ) {
+			for (int i = 0; i <= (indicePari) && !diversi; i++) {
+				System.out.println("step " + i);
+				System.out.println("confronto " + scomposta[i] + "  con  " + scomposta[(lunghezza - 1) - i]);
+				if (scomposta[i] != scomposta[(lunghezza - 1) - i]) {
+					
+					diversi = true;
+					System.out.println("Purtroppo non è palindroma");
+				}
+			}
 		}
+		
 		else {
 			for (int i = 0; i < indiceCentraele && !diversi; i++) {
 				System.out.println("step " + i);
@@ -29,13 +39,13 @@ public class VerificaPalindrome {
 					
 				}
 			}
-			System.out.println("La parola è lunga " + lunghezza);
-			if (diversi == false) {
-				System.out.println("La parola " + parola + " è palindroma");
-				
+			
 			}
 		
-		}
+		System.out.println("La parola è lunga " + lunghezza);
+		if (diversi == false) {
+			System.out.println("La parola " + parola + " è palindroma");
+		}	
 		scan.close();
 
 	}
