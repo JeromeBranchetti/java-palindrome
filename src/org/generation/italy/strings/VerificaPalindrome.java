@@ -33,9 +33,10 @@ public class VerificaPalindrome {
 			if (diversi == false) {
 				System.out.println("La parola " + parola + " è palindroma");
 				
-		}
+			}
 		
 		}
+		scan.close();
 
 	}
 
